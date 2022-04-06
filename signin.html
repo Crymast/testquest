@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Авторизация</title>
+	<style type="text/css">
+		
+		body {
+			font-family: sans-serif;
+		}
+
+		form {
+			width: 35em;
+			height: 35em;
+			box-shadow: 0.5em 0.5em 25px rgb(122 122 122 / 70%);
+			overflow: auto;
+			margin: 5em auto;
+		}
+
+		form *:not(form img, input.checkbox) {
+			margin-left: auto;
+		   	margin-right: auto;
+		   	width: 50%;
+		}
+
+		div.logo {
+			text-align: center;
+	   		margin-top: 10%;
+		}
+
+		div.logo img {
+			width: 3.5em;
+		}
+
+		form input.email, form input.password {
+			text-indent: 1em;
+		} 
+
+		form input.email, form input.password, form input.submit  {
+			margin-left: 16%;
+	   		margin-top: 3%;
+		}
+
+		form input.email {
+			height: 3.45em;
+	   		width: 28.73em;
+		}
+
+		form input.password {
+			height: 3em;
+	   		width: 28.1em;
+		}
+
+		form input.submit {
+			height: 2.5em;
+		   	width: 28.73em;
+		   	text-transform: uppercase;
+		   	color: white;
+		   	background: #2c75e9;
+		   	border-radius: 0.3em;
+		}
+
+		div.links {
+			margin-top: 1em;
+		}
+
+		div a.left, div a.right {
+			display: inline-block;
+	    	width: 100%;
+	    	margin-right: -45%;
+	    	margin-left: -19%;
+	    	vertical-align: bottom;
+	    	text-decoration: none;
+		}
+
+		.right {
+    		text-align: right;
+		}
+
+		form div.rem {
+			margin-top: 1em;
+			margin-left: 16%;
+			font-weight: 600;
+		}
+		form input.submit:disabled {
+  			background-color: gray;
+		}
+
+  	</style>
+</head>
+<body>
+	<form>
+		<div class="logo">
+			<img src="3.png">
+			<h3>Авторизация</h3>
+		</div>
+		 <input type="search" name="email" class="email" placeholder="Email Address*">
+		 <input type="password" name="password" class="password" placeholder="Password*">
+		<div class="rem">
+			<input type="checkbox" class="checkbox" name="remember"> Запомнить меня
+		</div>
+		<input type="submit" class="submit" value="Войти">
+			<div class="links">
+     		<a href="" class="left">Я забыл пароль</a>
+				<a href="" class="right">Зарегистрироваться</a>
+			</div>  
+	</form>
+
+
+	<script language="JavaScript">
+		const checkbox = document.querySelector('.checkbox');
+		checkbox.onclick = function () {
+			if (checkbox.checked) {
+				alert('Запомнил!');
+			}
+			else {
+				alert('Забыл!');
+			}
+		}
+
+		email = document.querySelector('.email');
+		pass = document.querySelector('.password');
+		btn = document.querySelector('.submit');
+		btn.setAttribute('disabled', true);
+		 
+		email.oninput = function() {
+		 	if (email.value.length < 1 || pass.value.length < 1) {
+		 		btn.setAttribute('disabled', true);
+		 	}
+		 	else {
+		 		btn.removeAttribute('disabled');
+		 	}
+		 }
+
+		pass.oninput = function() {
+		 	if (email.value.length < 1 || pass.value.length < 1) {
+		 		btn.setAttribute('disabled', true);
+		 	}
+		 	else {
+		 		btn.removeAttribute('disabled');
+		 	}
+		}
+		btn.onclick = function() {
+		 	setTimeout(function(){
+				location.reload();
+				}, 3000);
+		 	return false;
+		}
+
+		linkLeft = document.querySelector('.left');
+		linkRight = document.querySelector('.right');
+		linkLeft.onclick = function() {
+			prompt('Введите ваш E-mail');
+		}
+		linkRight.onclick = function() {
+			pEmail = prompt('Введите E-mail');
+			pPassOne = prompt('Введите пароль');
+			pPassTwo = prompt('Повторите пароль');
+			if (pPassOne === pPassTwo) {
+				alert('Вы успешно зарегистрированы!');
+			}
+			else {
+				alert('Пароли не совпадают');
+			}
+		}
+
+	</script>
+</body>
+</html>
