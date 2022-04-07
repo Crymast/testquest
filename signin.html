@@ -18,7 +18,7 @@
 			margin: 5em auto;
 		}
 
-		form *:not(form img, input.checkbox) {
+		form *:not(form img, input.checkbox, div.links) {
 			margin-left: auto;
 		   	margin-right: auto;
 		   	width: 50%;
@@ -57,14 +57,14 @@
 		}
 
 		div.links {
-			margin-top: 1em;
+			margin: 0.5em 2.5em;
+			width: 30em;
+			display: flex;
+			justify-content: space-between;
 		}
 
 		div a.left, div a.right {
-			display: inline-block;
 	    	width: 100%;
-	    	margin-right: -45%;
-	    	margin-left: -19%;
 	    	vertical-align: bottom;
 	    	text-decoration: none;
 		}
@@ -97,9 +97,13 @@
 		</div>
 		<input type="submit" class="submit" value="Войти">
 			<div class="links">
-     		<a href="" class="left">Я забыл пароль</a>
-				<a href="" class="right">Зарегистрироваться</a>
-			</div>  
+				<div class="links dleft">
+	     			<a href="" class="left">Я забыл пароль</a>
+	     		</div>
+	     		<div class="links dright">
+					<a href="" class="right">Зарегистрироваться</a>
+				</div>  
+			</div>
 	</form>
 
 
@@ -114,9 +118,9 @@
 			}
 		}
 
-		email = document.querySelector('.email');
-		pass = document.querySelector('.password');
-		btn = document.querySelector('.submit');
+		let email = document.querySelector('.email');
+		let pass = document.querySelector('.password');
+		let btn = document.querySelector('.submit');
 		btn.setAttribute('disabled', true);
 		 
 		email.oninput = function() {
@@ -143,8 +147,8 @@
 		 	return false;
 		}
 
-		linkLeft = document.querySelector('.left');
-		linkRight = document.querySelector('.right');
+		let linkLeft = document.querySelector('.left');
+		let linkRight = document.querySelector('.right');
 		linkLeft.onclick = function() {
 			prompt('Введите ваш E-mail');
 		}
