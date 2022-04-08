@@ -9,6 +9,7 @@
 		body {
 			font-family: sans-serif;
 		}
+
 		div.main {
 			display: flex;
 			align-items: center;
@@ -91,27 +92,27 @@
 </head>
 <body>
 	<div class="main">
-	<form>
-		<div class="logo">
-			<img src="3.png">
-			<h3>Авторизация</h3>
-		</div>
-		 <input name="email" class="email" placeholder="Email Address*">
-		 <input type="password" name="password" class="password" placeholder="Password*">
-		<div class="rem">
-			<input type="checkbox" class="checkbox" name="remember"> Запомнить меня
-		</div>
-		<input type="submit" class="submit" value="Войти">
-			<div class="links">
-				<div class="links dleft">
-	     			<a href="" class="left">Я забыл пароль</a>
-	     		</div>
-	     		<div class="links dright">
-					<a href="" class="right">Зарегистрироваться</a>
-				</div>  
+		<form>
+			<div class="logo">
+				<img src="3.png">
+				<h3>Авторизация</h3>
 			</div>
-	</form>
-</div>
+			 <input name="email" class="email" placeholder="Email Address*">
+			 <input type="password" name="password" class="password" placeholder="Password*">
+			<div class="rem">
+				<input type="checkbox" class="checkbox" name="remember"> Запомнить меня
+			</div>
+			<input type="submit" class="submit" value="Войти">
+				<div class="links">
+					<div class="links dleft">
+		     			<a href="" class="left">Я забыл пароль</a>
+		     		</div>
+		     		<div class="links dright">
+						<a href="" class="right">Зарегистрироваться</a>
+					</div>  
+				</div>
+		</form>
+	</div>
 
 	<script language="JavaScript">
 		const checkbox = document.querySelector('.checkbox');
@@ -130,7 +131,7 @@
 		let reg = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
 
 		btn.setAttribute('disabled', true);
-		 
+		
 		email.oninput = function() {
 		 	if (!reg.test(email.value) || pass.value.length < 1) {
 		 		btn.setAttribute('disabled', true);
@@ -148,6 +149,8 @@
 		 		btn.removeAttribute('disabled');
 		 	}
 		}
+		
+
 		btn.onclick = function() {
 		 	setTimeout(function(){
 				location.reload();
@@ -161,6 +164,7 @@
 		linkLeft.onclick = function() {
 			prompt('Введите ваш E-mail');
 		}
+		
 		linkRight.onclick = function() {
 			pEmail = prompt('Введите E-mail');
 			pPassOne = prompt('Введите пароль');
